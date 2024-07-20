@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>时代姐妹花，永远不分家</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url(bgi.jpg) no-repeat center center;
+            background-size: cover;
+        }
+
+        ul, li, ol {
+            list-style-type: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #content {
+            width: 1200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 50px 0;
+        }
+
+        #content .bar li {
+            width: 250px;
+            height: 400px;
+            position: relative;
+            perspective: 400px;
+        }
+
+        #content ul li > div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 1s;
+            backface-visibility: hidden;
+        }
+
+        #content ul li .forward {
+            transform: rotateY(0deg);
+        }
+
+        #content ul li:hover .forward {
+            transform: rotateY(-180deg);
+        }
+
+        #content ul li .tips {
+            transform: rotateY(180deg);
+            background: linear-gradient(#333, #666);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #content ul li:hover .tips {
+            transform: rotateY(0deg);
+            box-shadow: 0 0 10px 5px pink;
+            border-radius: 10px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: 5px;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 45px;
+            background: url(心.png) no-repeat center center;
+            background-size: contain;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        .colorful-text {
+            font-size: 24px;
+            font-weight: bold;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: white;
+            position: relative;
+            display: inline-block;
+        }
+
+        .colorful-text::before {
+            content: "时代姐妹花，永远不分家";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: transparent;
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 200%;
+            -webkit-background-clip: text;
+            animation: color-animation 5s infinite linear;
+        }
+
+        @keyframes color-animation {
+            0% {
+                background-position: -100% 0;
+            }
+            50% {
+                background-position: 0% 0;
+            }
+            100% {
+                background-position: 100% 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <ul class="bar">
+            <li>
+                <div class="forward">
+                    <img src="1.jpg">
+                    <div class="heart"></div>
+                </div>
+                <div class="tips">
+                    <p>时代姐妹花，永远不分家</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="colorful-text">时代姐妹花，永远不分家</div>
+</body>
+</html>
